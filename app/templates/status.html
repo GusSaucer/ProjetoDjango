@@ -6,8 +6,11 @@
     <title>Document</title>
 </head>
 <body>
+    {% if admin %}
     <h2>Servidor: {{ id_servidor }}</h2>
-    <h2>Status atual: {{ status_sistema }}
-    </h2>
+    <h2>Status atual: {{ status_sistema }}</h2>
+    {% else %}
+    <h2>Você não tem permissão para visualizar essa página</h2>
+    {% endif %}
 </body>
 </html>

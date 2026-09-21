@@ -15,6 +15,6 @@ def perfil_view(request):
     return render(request,'perfil.html', context)
 
 def status_view(request):
-    context = {'id_servidor': '127.0.0.1' , 'status_sistema': '200 OK - Online'}
+    context = {'admin': True ,'id_servidor': '127.0.0.1' , 'status_sistema': '200 OK - Online'}
 
     return render(request,'status.html', context)
