@@ -1,0 +1,304 @@
+/* ==========================================================================
+   STYLE.CSS - E-COMMERCE TECH (DJANGO BASE)
+   ========================================================================== */
+
+   :root {
+    /* Paleta da imagem */
+    --color-primary: #8E39B3;        /* Roxo escuro: identidade principal, header, botões primários */
+    --color-primary-light: #D36BFF;  /* Roxo vibrante: destaques, gradientes, estados ativos */
+    --color-secondary: #FFA5FD;      /* Rosa pastel: badges, detalhes e hover sutil */
+    --color-accent: #94D138;         /* Verde tech: CTA de compra, sucesso, tags de desconto */
+    --color-accent-light: #DCFF83;   /* Verde claro: highlights, fundos de badges e avisos */
+  
+    /* Neutros modernos (Dark/Tech friendly) */
+    --bg-body: #0d0f17;
+    --bg-surface: #161924;
+    --bg-surface-elevated: #202433;
+    --border-color: rgba(211, 107, 255, 0.15);
+  
+    --text-primary: #f8fafc;
+    --text-muted: #94a3b8;
+    --text-inverse: #0d0f17;
+  
+    /* Espaçamentos e bordas */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --shadow-glow: 0 0 20px rgba(142, 57, 179, 0.25);
+    --shadow-accent: 0 0 15px rgba(148, 209, 56, 0.35);
+    --transition: all 0.2s ease-in-out;
+  }
+  
+  /* Reset básico */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+  
+  a {
+    color: var(--color-primary-light);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  
+  a:hover {
+    color: var(--color-secondary);
+  }
+  
+  /* Container padrão */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  /* Header & Navbar */
+  .navbar {
+    background-color: rgba(22, 25, 36, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 1rem 0;
+  }
+  
+  .navbar .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .brand-logo {
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.5px;
+    color: #fff;
+  }
+  
+  .brand-logo span {
+    color: var(--color-accent-light);
+  }
+  
+  /* Grid de Produtos */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 0;
+  }
+  
+  /* Card de Produto */
+  .product-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: var(--transition);
+  }
+  
+  .product-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary-light);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .product-card img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-surface-elevated);
+    margin-bottom: 1rem;
+  }
+  
+  .product-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  
+  .product-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-accent-light);
+    margin-bottom: 1rem;
+  }
+  
+  /* Badges (Descontos, Tags de Categoria) */
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: var(--radius-sm);
+    width: fit-content;
+  }
+  
+  .badge-tech {
+    background-color: var(--color-primary);
+    color: #fff;
+  }
+  
+  .badge-sale {
+    background-color: var(--color-accent-light);
+    color: var(--text-inverse);
+  }
+  
+  .badge-tag {
+    background-color: rgba(255, 165, 253, 0.15);
+    color: var(--color-secondary);
+  }
+  
+  /* Botões */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  /* Botão de Compra / CTA Primário */
+  .btn-buy {
+    background-color: var(--color-accent);
+    color: var(--text-inverse);
+    width: 100%;
+    margin-top: auto;
+  }
+  
+  .btn-buy:hover {
+    background-color: var(--color-accent-light);
+    box-shadow: var(--shadow-accent);
+  }
+  
+  /* Botão Secundário / Detalhes */
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary-light);
+    border: 1px solid var(--color-primary-light);
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--color-primary-light);
+    color: #fff;
+  }
+  
+  /* Django Messages / Alerts */
+  .messages {
+    list-style: none;
+    margin: 1.5rem 0;
+  }
+  
+  .alert {
+    padding: 0.85rem 1.25rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .alert-success {
+    background-color: rgba(148, 209, 56, 0.15);
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent-light);
+  }
+  
+  .alert-error {
+    background-color: rgba(211, 107, 255, 0.15);
+    border: 1px solid var(--color-primary-light);
+    color: var(--color-secondary);
+  }
+
+  /* Classes integradas com Bootstrap */
+.navbar-custom {
+  background-color: rgba(22, 25, 36, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.logo-frog {
+  width: 40px;
+  height: 40px;
+  fill: var(--color-accent-light);
+  filter: drop-shadow(0 0 6px rgba(148, 209, 56, 0.4));
+}
+
+.brand-title {
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, var(--color-accent-light), var(--color-primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card-product {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+.card-product:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-glow);
+}
+
+.product-img-box {
+  background-color: var(--bg-surface-elevated);
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+}
+
+.text-tech-green {
+  color: var(--color-accent-light) !important;
+}
+
+.badge-pink {
+  background-color: rgba(255, 165, 253, 0.15);
+  color: var(--color-secondary);
+  border: 1px solid rgba(255, 165, 253, 0.3);
+}
+
+.btn-tech-buy {
+  background-color: var(--color-accent);
+  color: var(--text-inverse);
+  font-weight: 700;
+  border: none;
+  transition: var(--transition);
+}
+
+.btn-tech-buy:hover {
+  background-color: var(--color-accent-light);
+  box-shadow: var(--shadow-accent);
+}
+
+.nav-link-custom {
+  color: #cbd5e1 !important;
+  transition: var(--transition);
+}
+
+.nav-link-custom:hover {
+  color: var(--color-primary-light) !important;
+}

@@ -7,11 +7,15 @@
 </head>
 <body>
     <h1>Nossos Produtos:</h1>
-    <div class="card">
-        <h2>{{nome}}</h2>
-        <h3>Valor: R${{preco}}</h3>
-        <p>Qtd. em estoque: {{estoque}}</p>
-    </div>
+    <ul class="card">
+        {% for i in produtos %}
+        <li>
+        <h2>{{i.nome}}</h2>
+        <h3>Valor: R${{i.preco}}</h3>
+        <p>Qtd. em estoque: {{i.estoque}}</p>
+        </li>
+        {% endfor %}
+    </ul>
     
 </body>
 </html>
