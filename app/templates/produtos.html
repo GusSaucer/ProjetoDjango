@@ -1,21 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos</title>
-</head>
-<body>
-    <h1>Nossos Produtos:</h1>
-    <ul class="card">
-        {% for i in produtos %}
-        <li>
-        <h2>{{i.nome}}</h2>
-        <h3>Valor: R${{i.preco}}</h3>
-        <p>Qtd. em estoque: {{i.estoque}}</p>
-        </li>
-        {% endfor %}
-    </ul>
-    
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="py-5">
+  <div class="container">
+    <!-- Cabeçalho da página -->
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom border-secondary border-opacity-25">
+      <div>
+        <h2 class="text-white fw-bold mb-1">Catálogo de Produtos</h2>
+        <p class="text-secondary small mb-0">Confira nossos itens disponíveis em estoque.</p>
+      </div>
+      <span class="badge badge-pink">{{ produtos|length }} itens encontrados</span>
+    </div>
+
+    <!-- Grid de Produtos -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+      {% for item in produtos %}
+      <div class="col">
+        <div class="card-product h-100 p-3 d-flex flex-column">
+          <!-- Placeholder de Imagem com Ícones Dinâmicos -->
+          <div class="product-img-box mb-3 position-relative">
+            <i class="bi bi-box-seam text-secondary fs-1"></i>
+            {% if item.estoque <= 2 %}
+              <span class="badge bg-danger position-absolute top-0 start-0 m-2">Últimas unidades!</span>
+            {% else %}
+              <span class="badge badge-sale position-absolute top-0 start-0 m-2">Em estoque</span>
+            {% endif %}
+          </div>
+
+          <h5 class="product-title">{{ item.nome }}</h5>
+          
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="product-price mb-0">R$ {{ item.preco|floatformat:2 }}</span>
+            <small class="text-secondary">Qtd: {{ item.estoque }}</small>
+          </div>
+
+          <button class="btn btn-tech-buy w-100 mt-auto">
+            <i class="bi bi-cart-plus me-2"></i> Adicionar
+          </button>
+        </div>
+      </div>
+      {% empty %}
+      <div class="col-12 text-center py-5">
+        <p class="text-secondary">Nenhum produto cadastrado no momento.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</main>
+{% endblock %}

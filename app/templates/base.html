@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KeroTech Store</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Seu style.css estático do Django -->
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top py-2">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="{% url 'home' %}">
+        <!-- Sapo Vetorial (SVG nativo) -->
+        <svg class="logo-frog" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="18" cy="18" r="10" />
+          <circle cx="46" cy="18" r="10" />
+          <circle cx="18" cy="18" r="4" fill="#0f111a" />
+          <circle cx="46" cy="18" r="4" fill="#0f111a" />
+          <ellipse cx="32" cy="36" rx="26" ry="20" />
+          <path d="M 20 38 Q 32 46 44 38" stroke="#0f111a" stroke-width="3" fill="none" stroke-linecap="round" />
+          <circle cx="16" cy="38" r="3" fill="#8E39B3" />
+          <circle cx="48" cy="38" r="3" fill="#8E39B3" />
+        </svg>
+        <span class="fs-4 brand-title">KeroTech</span>
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTech">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarTech">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+          <li class="nav-item"><a class="nav-link nav-link-custom active" href="{% url 'home' %}">Home</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="{% url 'produtos' %}">Produtos</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="{% url 'perfil' %}">Perfil</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-3">
+          <a href="#" class="btn btn-outline-light btn-sm position-relative border-secondary">
+            <i class="bi bi-cart3 fs-6"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  {% block content %}
+  {% endblock %}
+
+  <footer class="py-4 border-top border-secondary border-opacity-25 text-center text-secondary small">
+    <div class="container">
+      <p class="mb-0">© 2026 KeroTech Store — Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,13 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Bem vindo, {{ nome_usuario }}!! </h1>
-    <p>Cargo: {{ cargo }}</p>
-    <p>Setor: {{ setor }}</p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        
+        <!-- Cartão Principal de Perfil -->
+        <div class="card-product p-4 p-md-5 mb-4">
+          <div class="d-flex flex-column flex-md-row align-items-center gap-4 border-bottom border-secondary border-opacity-25 pb-4 mb-4">
+            
+            <!-- Avatar Tech -->
+            <div class="rounded-circle d-flex align-items-center justify-content-center" 
+                 style="width: 90px; height: 90px; background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));">
+              <i class="bi bi-person-badge text-white fs-1"></i>
+            </div>
+
+            <!-- Dados Principais -->
+            <div class="text-center text-md-start">
+              <h3 class="text-white fw-bold mb-1">{{ nome_usuario }}</h3>
+              <p class="text-tech-green mb-2 fw-semibold">{{ cargo }} — Setor de {{ setor }}</p>
+              <span class="badge badge-pink">Membro KeroTech Store</span>
+            </div>
+          </div>
+
+          <!-- Informações da Conta -->
+          <div class="row g-3 text-secondary">
+            <div class="col-sm-6">
+              <div class="p-3 rounded-3" style="background-color: var(--bg-surface-elevated);">
+                <span class="d-block small text-muted">Status da Conta</span>
+                <span class="fw-semibold text-white"><i class="bi bi-check-circle-fill text-tech-green me-1"></i> Ativa</span>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="p-3 rounded-3" style="background-color: var(--bg-surface-elevated);">
+                <span class="d-block small text-muted">Nível de Permissão</span>
+                <span class="fw-semibold text-white">Colaborador / Operador</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Links rápidos de gerenciamento -->
+          <div class="d-flex gap-2 flex-wrap mt-4 pt-2">
+            <a href="{% url 'produtos' %}" class="btn btn-secondary btn-sm">
+              <i class="bi bi-bag me-1"></i> Explorar Catálogo
+            </a>
+            <a href="{% url 'status' %}" class="btn btn-outline-secondary btn-sm">
+              <i class="bi bi-hdd-network me-1"></i> Checar Status do Sistema
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
