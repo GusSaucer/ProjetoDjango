@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <main class="py-5">
@@ -17,9 +18,20 @@
       {% for item in produtos %}
       <div class="col">
         <div class="card-product h-100 p-3 d-flex flex-column">
-          <!-- Placeholder de Imagem com Ícones Dinâmicos -->
-          <div class="product-img-box mb-3 position-relative">
-            <i class="bi bi-box-seam text-secondary fs-1"></i>
+          
+          <!-- Bloco da Imagem com Suporte a URL, Static e Fallback -->
+          <div class="product-img-box mb-3 position-relative overflow-hidden">
+            {% if item.imagem %}
+              {% if "http://" in item.imagem or "https://" in item.imagem %}
+                <img src="{{ item.imagem }}" alt="{{ item.nome }}" class="w-100 h-100 object-fit-cover rounded">
+              {% else %}
+                <img src="{% static item.imagem %}" alt="{{ item.nome }}" class="w-100 h-100 object-fit-cover rounded">
+              {% endif %}
+            {% else %}
+              <i class="bi bi-box-seam text-secondary fs-1"></i>
+            {% endif %}
+
+            <!-- Badges de Estoque -->
             {% if item.estoque <= 2 %}
               <span class="badge bg-danger position-absolute top-0 start-0 m-2">Últimas unidades!</span>
             {% else %}
