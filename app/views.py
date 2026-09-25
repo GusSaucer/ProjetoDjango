@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Produtos
+from .models import Produto
 
 
 def home_view(request):
