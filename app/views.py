@@ -6,7 +6,7 @@ def home_view(request):
     return render(request,'home.html')
 
 def produtos_view(request):
-    lista_produtos = Produtos.objects.all()
+    lista_produtos = Produto.objects.all()
 
     context = {'produtos': lista_produtos}
     
