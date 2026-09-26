@@ -302,3 +302,51 @@
 .nav-link-custom:hover {
   color: var(--color-primary-light) !important;
 }
+
+/* ==========================================================================
+   TELA DE LOGIN - KERO TECH
+   ========================================================================== */
+
+   .login-viewport {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-body);
+  }
+  
+  .login-card-container {
+    max-width: 440px;
+    width: 100%;
+  }
+  
+  .login-input-group {
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+  }
+  
+  .login-input-group:focus-within {
+    border-color: var(--color-primary-light);
+    box-shadow: 0 0 12px rgba(211, 107, 255, 0.25);
+  }
+  
+  .login-input-icon {
+    background-color: transparent;
+    border: none;
+    color: var(--color-primary-light);
+    padding-left: 1rem;
+  }
+  
+  .login-input-field {
+    background-color: transparent !important;
+    border: none !important;
+    color: var(--text-primary) !important;
+    box-shadow: none !important;
+    padding: 0.75rem 1rem 0.75rem 0.5rem;
+  }
+  
+  .login-input-field::placeholder {
+    color: var(--text-muted);
+  }
