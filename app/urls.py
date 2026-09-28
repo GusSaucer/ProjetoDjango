@@ -7,4 +7,5 @@ urlpatterns = [
     path('perfil/', views.perfil_view, name='perfil'),
     path('status/', views.status_view, name='status'),
     path('accounts/',include('django.contrib.auth.urls')),
+    path('cadastro/', views.cadastro_view, name='cadastro'),
 ]
