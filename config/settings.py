@@ -23,9 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-m#xhi0x!k(o4*pig&d^*9h)fe_-aw*-d@kd6s^+_5rdw@4r0y&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+DEBUG = False
+ALLOWED_HOSTS = ['gussaucer.pythonanywhere.com', '127.0.0.1']
 
 LOGIN_REDIRECT_URL = '/perfil/'
 LOGOUT_REDIRECT_URL = 'login'
