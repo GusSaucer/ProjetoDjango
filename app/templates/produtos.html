@@ -45,25 +45,29 @@
           </div>
           {% endif %}
 
-          <!-- Bloco da Imagem -->
-          <div class="product-img-box mb-3 position-relative overflow-hidden">
-            {% if item.imagem %}
-              {% if "http://" in item.imagem or "https://" in item.imagem %}
-                <img src="{{ item.imagem }}" alt="{{ item.nome }}" class="w-100 h-100 object-fit-cover rounded">
-              {% else %}
-                <img src="{% static item.imagem %}" alt="{{ item.nome }}" class="w-100 h-100 object-fit-cover rounded">
-              {% endif %}
-            {% else %}
-              <i class="bi bi-box-seam text-secondary fs-1"></i>
-            {% endif %}
+<!-- Bloco da Imagem -->
+<a href="{% url 'detalhes' item.id %}" class="text-decoration-none">
+  <div class="product-img-box mb-3 position-relative overflow-hidden">
+    {% if item.imagem %}
+      {% if "http://" in item.imagem or "https://" in item.imagem %}
+        <img src="{{ item.imagem }}" alt="{{ item.nome }}" class="w-100 h-100 object-fit-cover rounded">
+      {% else %}
+        <img src="{% static item.imagem %}" alt="{{ item.nome }}" class="w-100 h-100 object-fit-cover rounded">
+      {% endif %}
+    {% else %}
+      <i class="bi bi-box-seam text-secondary fs-1"></i>
+    {% endif %}
 
-            <!-- Badges de Estoque -->
-            {% if item.estoque <= 2 %}
-              <span class="badge bg-danger position-absolute top-0 start-0 m-2">Últimas unidades!</span>
-            {% else %}
-              <span class="badge badge-sale position-absolute top-0 start-0 m-2">Em estoque</span>
-            {% endif %}
-          </div>
+    <!-- Badges de Estoque -->
+    {% if item.estoque <= 2 %}
+      <span class="badge bg-danger position-absolute top-0 start-0 m-2">Últimas unidades!</span>
+    {% else %}
+      <span class="badge badge-sale position-absolute top-0 start-0 m-2">Em stock</span>
+    {% endif %}
+  </div>
+
+  <h5 class="product-title text-white hover-primary">{{ item.nome }}</h5>
+</a>
 
           <h5 class="product-title">{{ item.nome }}</h5>
           

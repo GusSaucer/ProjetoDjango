@@ -8,4 +8,5 @@ urlpatterns = [
     path('status/', views.status_view, name='status'),
     path('accounts/',include('django.contrib.auth.urls')),
     path('cadastro/', views.cadastro_view, name='cadastro'),
+    path('produtos/<int:id>/',views.detalhes_produto_view,name='detalhes'),
 ]

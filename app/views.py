@@ -60,3 +60,10 @@ def cadastro_view(request):
         form = UserCreationForm()
 
     return render(request, 'cadastro.html', {'form': form})
+
+def detalhes_produto_view(request, id):
+    # Busca o produto cuja PK seja igual ao ID da URL
+    # get_object_or_404 retorna erro 404 se não encontrar
+    produto_banco = get_object_or_404(Produto, id=id)
+
+    return render(request,'detalhes_produto.html',{'produto': produto_banco})
